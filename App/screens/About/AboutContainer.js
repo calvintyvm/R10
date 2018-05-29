@@ -56,7 +56,6 @@ class AboutContainer extends Component {
               showInformation={this.showInformation.bind(this)}
               aboutData={data.allConducts}
               currentIndex={this.state.currentIndex}
-              nav={this.props.navigation}
             />
           );
         }}

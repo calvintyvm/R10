@@ -12,7 +12,7 @@ import {
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
 
-const About = ({ aboutData, showInfo, showInformation, currentIndex, nav }) => {
+const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -33,7 +33,6 @@ const About = ({ aboutData, showInfo, showInformation, currentIndex, nav }) => {
           />
         </View>
         <View>
-          <Button title="Go To Home" onPress={() => nav.navigate("Map")} />
           <Text style={styles.textStyle}>
             R10 is a conference that focuses on just about any topic related to
             dev.

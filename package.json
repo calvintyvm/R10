@@ -2,6 +2,11 @@
   "name": "r10",
   "version": "0.0.1",
   "private": true,
+  "rnpm": {
+    "assets": [
+      "App/assets/fonts"
+    ]
+  },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
@@ -14,6 +19,8 @@
     "react-apollo": "^2.1.4",
     "react-native": "0.55.4",
     "react-native-collapsible": "^0.11.3",
+    "react-native-linear-gradient": "^2.4.0",
+    "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.0.4"
   },
   "devDependencies": {

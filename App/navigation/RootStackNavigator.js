@@ -1,9 +1,13 @@
 import { createStackNavigator } from "react-navigation";
-import AboutContainer from "../screens/About";
-// import FavouritesContainer from "../screens/Favourites";
-import MapContainer from "../screens/Map";
+import NavigationLayout from "./NavigationLayout";
 
-export default createStackNavigator({
-  About: AboutContainer,
-  Map: MapContainer
-});
+export default createStackNavigator(
+  {
+    Layout: NavigationLayout
+    //Speaker:SpeakerModal
+  },
+  {
+    mode: "modal",
+    headerMode: "none"
+  }
+);
