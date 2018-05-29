@@ -6,20 +6,34 @@ import {
   View,
   ScrollView,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Button
 } from "react-native";
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
 
-const About = ({ aboutData, showInfo, showInformation }) => {
+const About = ({ aboutData, showInfo, showInformation, currentIndex, nav }) => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Image
-          style={styles.imageStyle}
-          source={require("../../assets/r10_logo.png")}
-        />
+        <View
+          style={{
+            alignItems: "center",
+            borderBottomColor: "grey",
+            borderBottomWidth: 2,
+            marginLeft: 15,
+            marginRight: 15,
+            justifyContent: "center",
+            marginBottom: 15
+          }}
+        >
+          <Image
+            style={styles.imageStyle}
+            source={require("../../assets/r10_logo.png")}
+          />
+        </View>
         <View>
+          <Button title="Go To Home" onPress={() => nav.navigate("Map")} />
           <Text style={styles.textStyle}>
             R10 is a conference that focuses on just about any topic related to
             dev.
@@ -34,11 +48,13 @@ const About = ({ aboutData, showInfo, showInformation }) => {
         <Text style={styles.welcome}>
           {aboutData.map((item, index) => {
             return (
-              <View>
-                <TouchableOpacity onPress={showInformation}>
+              <View key={index}>
+                <TouchableOpacity onPress={() => showInformation(index)}>
                   <Text style={styles.titleStyle}>{item.title}</Text>
                 </TouchableOpacity>
-                <Text style={styles.textStyle}>{item.description}</Text>
+                {showInfo && currentIndex == index ? (
+                  <Text style={styles.infoText}>{item.description}</Text>
+                ) : null}
               </View>
             );
           })}
@@ -70,15 +86,17 @@ const styles = StyleSheet.create({
     fontWeight: "100",
     margin: 10
   },
+  infoText: {
+    fontSize: 15,
+    fontWeight: "100"
+  },
   titleStyle: {
     fontSize: 25,
     fontWeight: "bold",
     margin: 10
   },
   imageStyle: {
-    textAlign: "center",
-    marginBottom: 50,
-    borderBottomWidth: 1
+    marginBottom: 25
   }
 });
 

@@ -22,22 +22,23 @@ const AboutData = gql`
   }
 `;
 
-//pass in props
-
 class AboutContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showInfo: false
+      showInfo: false,
+      currentIndex: -1
     };
   }
 
-  showInformation = () => {
-    // this.setState({ showInfo: !this.state.showInfo });
-    console.log("hello");
+  showInformation = index => {
+    this.setState({ showInfo: !this.state.showInfo, currentIndex: index });
+    console.log(index);
   };
 
   render() {
+    console.log(this.state.currentIndex);
+    console.log(this.state.showInfo);
     return (
       <Query query={AboutData}>
         {({ loading, error, data }) => {
@@ -54,6 +55,8 @@ class AboutContainer extends Component {
               showInfo={this.state.showInfo}
               showInformation={this.showInformation.bind(this)}
               aboutData={data.allConducts}
+              currentIndex={this.state.currentIndex}
+              nav={this.props.navigation}
             />
           );
         }}
