@@ -19,6 +19,8 @@ const scheduleData = gql`
       title
       speaker {
         name
+        bio
+        image
       }
       startTime
       description

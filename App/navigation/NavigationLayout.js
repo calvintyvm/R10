@@ -7,6 +7,7 @@ import AboutContainer from "../screens/About";
 import ScheduleContainer from "../screens/Schedule";
 import FavesContainer from "../screens/Faves";
 import SessionContainer from "../screens/Session";
+import SpeakerContainer from "../screens/Speaker";
 // import FavouritesContainer from "../screens/Favourites";
 import MapContainer from "../screens/Map";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -26,7 +27,8 @@ const FavesStack = createStackNavigator(
 const ScheduleStack = createStackNavigator(
   {
     Schedule: ScheduleContainer,
-    Session: SessionContainer
+    Session: SessionContainer,
+    Speaker: SpeakerContainer
   },
   {
     navigationOptions: ({ navigation }) => ({

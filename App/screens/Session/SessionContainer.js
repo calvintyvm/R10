@@ -6,7 +6,9 @@ import {
   Text,
   View,
   ScrollView,
-  Button
+  Button,
+  Image,
+  TouchableHighlight
 } from "react-native";
 
 class SessionContainer extends Component {
@@ -24,7 +26,23 @@ class SessionContainer extends Component {
         <Text>{title}</Text>
         <Text>{time}</Text>
         <Text>{description}</Text>
-        <Text>{speaker.name}</Text>
+        <View>
+          <TouchableHighlight
+            onPress={() =>
+              navigation.navigate("Speaker", {
+                speaker: speaker
+              })
+            }
+          >
+            <View>
+              <Text>{speaker.name}</Text>
+              <Image
+                style={{ width: 75, height: 75 }}
+                source={{ uri: speaker.image }}
+              />
+            </View>
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }
