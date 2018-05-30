@@ -7,10 +7,13 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  Button
+  Button,
+  Dimensions
 } from "react-native";
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
+
+var { height, width } = Dimensions.get("window");
 
 const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
   return (
@@ -47,13 +50,15 @@ const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
         <Text style={styles.welcome}>
           {aboutData.map((item, index) => {
             return (
-              <View key={index}>
+              <View key={index} style={{}}>
                 <TouchableOpacity onPress={() => showInformation(index)}>
-                  <Text style={styles.titleStyle}>{item.title}</Text>
+                  <Text style={styles.infoTitle}>+ {item.title}</Text>
                 </TouchableOpacity>
-                {showInfo && currentIndex == index ? (
-                  <Text style={styles.infoText}>{item.description}</Text>
-                ) : null}
+                <View style={{ flex: 1, flexWrap: "wrap" }}>
+                  {showInfo && currentIndex == index ? (
+                    <Text style={styles.infoText}>{item.description}</Text>
+                  ) : null}
+                </View>
               </View>
             );
           })}
@@ -68,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 100
+    marginTop: 30
   },
   welcome: {
     fontSize: 20,
@@ -93,6 +98,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     margin: 10
+  },
+  infoTitle: {
+    fontSize: 17,
+    fontWeight: "bold",
+    margin: 10,
+    width: width
   },
   imageStyle: {
     marginBottom: 25
