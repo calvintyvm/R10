@@ -13,6 +13,10 @@ import MapContainer from "../screens/Map";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
 
+export const SpeakerModal = createStackNavigator({
+  Speaker: SpeakerContainer
+});
+
 const FavesStack = createStackNavigator(
   {
     Faves: FavesContainer
@@ -27,8 +31,7 @@ const FavesStack = createStackNavigator(
 const ScheduleStack = createStackNavigator(
   {
     Schedule: ScheduleContainer,
-    Session: SessionContainer,
-    Speaker: SpeakerContainer
+    Session: SessionContainer
   },
   {
     navigationOptions: ({ navigation }) => ({

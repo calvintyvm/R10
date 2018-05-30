@@ -12,6 +12,10 @@ import {
 } from "react-native";
 
 class SessionContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     const { navigation } = this.props;
     const title = navigation.getParam("title", "NO-TITLE");
@@ -29,7 +33,7 @@ class SessionContainer extends Component {
         <View>
           <TouchableHighlight
             onPress={() =>
-              navigation.navigate("Speaker", {
+              navigation.push("Speaker", {
                 speaker: speaker
               })
             }

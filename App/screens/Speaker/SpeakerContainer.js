@@ -7,8 +7,10 @@ import {
   View,
   ScrollView,
   Button,
-  Image
+  Image,
+  TouchableHighlight
 } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 class SpeakerContainer extends Component {
   render() {
@@ -16,6 +18,12 @@ class SpeakerContainer extends Component {
     const speaker = navigation.getParam("speaker", "NO-SPEAKER");
     return (
       <View>
+        <Ionicons
+          name="ios-close"
+          size={35}
+          color="black"
+          onPress={() => navigation.pop()}
+        />
         <Image
           style={{ width: 75, height: 75 }}
           source={{ uri: speaker.image }}
