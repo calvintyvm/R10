@@ -24,15 +24,37 @@ class SpeakerContainer extends Component {
           color="black"
           onPress={() => navigation.pop()}
         />
-        <Image
-          style={{ width: 75, height: 75 }}
-          source={{ uri: speaker.image }}
-        />
-        <Text>{speaker.name}</Text>
-        <Text>{speaker.bio}</Text>
+        <View style={styles.container}>
+          <Image
+            style={{ width: 75, height: 75 }}
+            source={{ uri: speaker.image }}
+          />
+          <Text style={styles.textName}>{speaker.name}</Text>
+          <Text style={styles.textDescription}>{speaker.bio}</Text>
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginLeft: 15,
+    marginRight: 15,
+    textAlign: "center"
+    // flex: 1,
+    // flexDirection: "column",
+    // alignItems: "center"
+  },
+  textName: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+    marginTop: 10
+  },
+  textDescription: {
+    fontSize: 17
+  }
+});
 
 export default SpeakerContainer;

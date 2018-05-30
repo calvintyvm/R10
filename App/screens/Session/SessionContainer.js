@@ -10,6 +10,7 @@ import {
   Image,
   TouchableHighlight
 } from "react-native";
+import moment from "moment";
 
 class SessionContainer extends Component {
   constructor(props) {
@@ -25,11 +26,15 @@ class SessionContainer extends Component {
     const location = navigation.getParam("location", "NO-LOCATION");
     console.log(speaker);
     return (
-      <View>
-        <Text>{location}</Text>
-        <Text>{title}</Text>
-        <Text>{time}</Text>
-        <Text>{description}</Text>
+      <View style={styles.container}>
+        <Text style={styles.textLocation}>{location}</Text>
+        <Text style={styles.textTitle}>{title}</Text>
+        <Text style={styles.textTime}>
+          {moment(time)
+            .format("h:mm a")
+            .toUpperCase()}
+        </Text>
+        <Text style={styles.textDescription}>{description}</Text>
         <View>
           <TouchableHighlight
             onPress={() =>
@@ -39,11 +44,16 @@ class SessionContainer extends Component {
             }
           >
             <View>
-              <Text>{speaker.name}</Text>
-              <Image
-                style={{ width: 75, height: 75 }}
-                source={{ uri: speaker.image }}
-              />
+              <View>
+                <Text>Presented by:</Text>
+              </View>
+              <View>
+                <Text>{speaker.name}</Text>
+                <Image
+                  style={{ width: 75, height: 75, borderRadius: 75 / 2 }}
+                  source={{ uri: speaker.image }}
+                />
+              </View>
             </View>
           </TouchableHighlight>
         </View>
@@ -51,5 +61,36 @@ class SessionContainer extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    width: "80%",
+    marginLeft: 20,
+    marginTop: 20
+  },
+  textLocation: {
+    fontSize: 18,
+    color: "grey"
+  },
+  textTitle: {
+    fontSize: 28,
+    fontWeight: "bold",
+    marginTop: 10,
+    marginBottom: 10
+  },
+  textTime: {
+    color: "red",
+    marginBottom: 10,
+    fontSize: 18
+  },
+  textDescription: {
+    fontSize: 18,
+    marginBottom: 10
+  }
+  // speakerContainer: {
+  //   flex: 1,
+  //   flexDirection: "row"
+  // }
+});
 
 export default withNavigation(SessionContainer);

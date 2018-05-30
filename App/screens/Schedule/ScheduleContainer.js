@@ -61,7 +61,6 @@ class ScheduleContainer extends Component {
           }
           if (error) return <p>Error getting items</p>;
           const newScheduleData = this.formatSessionData(data.allSessions);
-
           return (
             <Schedule
               nav={this.props.navigation}
