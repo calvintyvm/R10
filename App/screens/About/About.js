@@ -54,7 +54,7 @@ const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
                 <TouchableOpacity onPress={() => showInformation(index)}>
                   <Text style={styles.infoTitle}>+ {item.title}</Text>
                 </TouchableOpacity>
-                <View style={{ flex: 1, flexWrap: "wrap" }}>
+                <View style={{}}>
                   {showInfo && currentIndex == index ? (
                     <Text style={styles.infoText}>{item.description}</Text>
                   ) : null}
