@@ -6,25 +6,39 @@ import {
   View,
   ScrollView,
   Button,
-  SectionList
+  SectionList,
+  TouchableHighlight
 } from "react-native";
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
 import moment from "moment";
 
-const Schedule = ({ scheduleData }) => (
+const Schedule = ({ scheduleData, nav }) => (
   <View>
-    {console.log(scheduleData)}
     <SectionList
       sections={scheduleData}
       renderItem={({ item, section, index }) => (
         <View>
-          <Text style={styles.scheduleTitle} key={index}>
-            {item.title}
-          </Text>
-          <Text style={styles.scheduleLocation} key={index}>
-            {item.location}
-          </Text>
+          <TouchableHighlight
+            onPress={() =>
+              nav.navigate("Session", {
+                title: item.title,
+                time: item.startTime,
+                speaker: item.speaker,
+                description: item.description,
+                location: item.location
+              })
+            }
+          >
+            <View>
+              <Text style={styles.scheduleTitle} key={index}>
+                {item.title}
+              </Text>
+              <Text style={styles.scheduleLocation} key={index}>
+                {item.location}
+              </Text>
+            </View>
+          </TouchableHighlight>
         </View>
       )}
       renderSectionHeader={({ section: { title } }) => (

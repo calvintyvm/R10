@@ -1,3 +1,3 @@
-import sessionContainer from "./sessionContainer";
+import SessionContainer from "./SessionContainer";
 
-export default sessionContainer;
+export default SessionContainer;

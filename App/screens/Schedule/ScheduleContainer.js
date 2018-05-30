@@ -14,6 +14,7 @@ import { Query, graphql } from "react-apollo";
 const scheduleData = gql`
   query {
     allSessions {
+      title
       location
       title
       speaker {
@@ -59,7 +60,12 @@ class ScheduleContainer extends Component {
           if (error) return <p>Error getting items</p>;
           const newScheduleData = this.formatSessionData(data.allSessions);
 
-          return <Schedule scheduleData={newScheduleData} />;
+          return (
+            <Schedule
+              nav={this.props.navigation}
+              scheduleData={newScheduleData}
+            />
+          );
         }}
       </Query>
     );
