@@ -18,6 +18,7 @@ import {
   deleteTheFave
 } from "../../redux/modules/Faves";
 import Session from "./Session";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 class SessionContainer extends Component {
   constructor(props) {
@@ -51,6 +52,11 @@ class SessionContainer extends Component {
     return (
       <ScrollView style={styles.container}>
         {/* <Session /> */}
+        {findArray.find(id => id.id === faveid) ? (
+          <Ionicons name="ios-heart" size={15} color="red" />
+        ) : (
+          <Text />
+        )}
         <Text style={styles.textLocation}>{location}</Text>
         <Text style={styles.textTitle}>{title}</Text>
         <Text style={styles.textTime}>

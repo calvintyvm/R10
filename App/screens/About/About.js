@@ -56,7 +56,9 @@ const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
               </TouchableOpacity>
               {showInfo && currentIndex == index ? (
                 <Text style={styles.infoText}>{item.description}</Text>
-              ) : null}
+              ) : (
+                <Text />
+              )}
             </View>
           );
         })}
