@@ -17,9 +17,9 @@ var { height, width } = Dimensions.get("window");
 
 const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <View
+    // <View style={styles.container}>
+    <ScrollView>
+      {/* <View
           style={{
             alignItems: "center",
             borderBottomColor: "grey",
@@ -29,42 +29,39 @@ const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
             justifyContent: "center",
             marginBottom: 15
           }}
-        >
-          <Image
-            style={styles.imageStyle}
-            source={require("../../assets/r10_logo.png")}
-          />
-        </View>
-        <View>
-          <Text style={styles.textStyle}>
-            R10 is a conference that focuses on just about any topic related to
-            dev.
-          </Text>
-          <Text style={styles.titleStyle}>Date & Venue</Text>
-          <Text style={styles.textStyle}>
-            The R10 conference will take place on Tuesday, June 27 2018 in
-            Vancouver, Bc.
-          </Text>
-        </View>
-        <Text style={styles.titleStyle}>Code of Conduct</Text>
-        <Text style={styles.welcome}>
-          {aboutData.map((item, index) => {
-            return (
-              <View key={index} style={{}}>
-                <TouchableOpacity onPress={() => showInformation(index)}>
-                  <Text style={styles.infoTitle}>+ {item.title}</Text>
-                </TouchableOpacity>
-                <View style={{}}>
-                  {showInfo && currentIndex == index ? (
-                    <Text style={styles.infoText}>{item.description}</Text>
-                  ) : null}
-                </View>
-              </View>
-            );
-          })}
+        > */}
+      <Image
+        style={styles.imageStyle}
+        source={require("../../assets/r10_logo.png")}
+      />
+      {/* </View> */}
+      <View>
+        <Text style={styles.textStyle}>
+          R10 is a conference that focuses on just about any topic related to
+          dev.
         </Text>
-      </ScrollView>
-    </View>
+        <Text style={styles.titleStyle}>Date & Venue</Text>
+        <Text style={styles.textStyle}>
+          The R10 conference will take place on Tuesday, June 27 2018 in
+          Vancouver, Bc.
+        </Text>
+      </View>
+      <Text style={styles.titleStyle}>Code of Conduct</Text>
+      <View style={styles.welcome}>
+        {aboutData.map((item, index) => {
+          return (
+            <View key={index} style={{}}>
+              <TouchableOpacity onPress={() => showInformation(index)}>
+                <Text style={styles.infoTitle}>+ {item.title}</Text>
+              </TouchableOpacity>
+              {showInfo && currentIndex == index ? (
+                <Text style={styles.infoText}>{item.description}</Text>
+              ) : null}
+            </View>
+          );
+        })}
+      </View>
+    </ScrollView>
   );
 };
 
@@ -77,7 +74,7 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 20,
-    textAlign: "center",
+    // textAlign: "center",
     margin: 2
   },
   instructions: {

@@ -17,15 +17,15 @@ export const createFave = id => {
   });
 };
 
+export const queryAllFaves = () => {
+  return realm.objects("Fave");
+};
+
 export const deleteFave = id => {
   realm.write(() => {
     const faveToDelete = realm.objects("Fave").filtered("id == $0", id);
     realm.delete(faveToDelete);
   });
-};
-
-export const queryAllFaves = () => {
-  return realm.objects("Fave");
 };
 
 export default realm;

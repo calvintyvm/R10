@@ -45,11 +45,11 @@ class AboutContainer extends Component {
           if (loading) {
             return (
               <View>
-                <Text>Loading</Text>;
+                <Text>Loading</Text>
               </View>
             );
           }
-          if (error) return <p>Error getting items</p>;
+          // if (error) return <Text>Error getting items</Text>;
           return (
             <About
               showInfo={this.state.showInfo}

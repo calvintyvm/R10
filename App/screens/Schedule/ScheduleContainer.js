@@ -10,10 +10,12 @@ import {
 } from "react-native";
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
+import { connect } from "react-redux";
 
 const scheduleData = gql`
   query {
     allSessions {
+      id
       title
       location
       title
@@ -55,16 +57,17 @@ class ScheduleContainer extends Component {
           if (loading) {
             return (
               <View>
-                <Text>Loading</Text>;
+                <Text>Loading</Text>
               </View>
             );
           }
-          if (error) return <p>Error getting items</p>;
+          // if (error) return <Text>Error getting items</Text>;
           const newScheduleData = this.formatSessionData(data.allSessions);
           return (
             <Schedule
               nav={this.props.navigation}
               scheduleData={newScheduleData}
+              favesData={this.props && this.props.allFaves}
             />
           );
         }}
@@ -73,4 +76,6 @@ class ScheduleContainer extends Component {
   }
 }
 
-export default ScheduleContainer;
+export default connect(state => ({
+  allFaves: state.Faves.allFaves
+}))(ScheduleContainer);

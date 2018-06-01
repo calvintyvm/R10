@@ -4,12 +4,16 @@ import client from "./config/api";
 import { ApolloProvider } from "react-apollo";
 import About from "./screens/About";
 import RootStackNavigator from "./navigation/RootStackNavigator";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 export default class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <RootStackNavigator />
+        <Provider store={store}>
+          <RootStackNavigator />
+        </Provider>
       </ApolloProvider>
     );
   }
