@@ -19,38 +19,42 @@ const Faves = ({ scheduleData, nav, favesData }) => (
     sections={scheduleData}
     renderItem={({ item, section, index }) => (
       <View style={{ flex: 1, flexDirection: "row" }}>
-        <TouchableOpacity
-          onPress={() =>
-            nav.navigate("Session", {
-              title: item.title,
-              time: item.startTime,
-              speaker: item.speaker,
-              description: item.description,
-              location: item.location,
-              faveid: item.id,
-              favesData: favesData
-            })
-          }
-        >
-          <View>
-            <Text style={styles.scheduleTitle}>{item.title}</Text>
-            <Text style={styles.scheduleLocation}>{item.location}</Text>
-          </View>
-        </TouchableOpacity>
         <Text style={{}}>
           {Array.from(favesData).find(id => id.id === item.id) ? (
-            <Ionicons name="ios-heart" size={15} color="red" />
+            <View>
+              {/* <Text>{moment(item.startTime).format("h:mm a")}</Text> */}
+              <Text style={styles.startTime}>
+                {moment(item.startTime).format("h:mm a")}
+              </Text>
+              <Ionicons name="ios-heart" size={15} color="red" />
+              <TouchableOpacity
+                onPress={() =>
+                  nav.navigate("Session", {
+                    title: item.title,
+                    time: item.startTime,
+                    speaker: item.speaker,
+                    description: item.description,
+                    location: item.location,
+                    faveid: item.id,
+                    favesData: favesData
+                  })
+                }
+              >
+                <Text style={styles.scheduleTitle}>{item.title}</Text>
+                <Text style={styles.scheduleLocation}>{item.location}</Text>
+              </TouchableOpacity>
+            </View>
           ) : (
             <Text />
           )}
         </Text>
       </View>
     )}
-    renderSectionHeader={({ section: { title } }) => (
-      <View>
-        <Text style={styles.startTime}>{moment(title).format("h:mm a")}</Text>
-      </View>
-    )}
+    // renderSectionHeader={({ section: { title } }) => (
+    //   <View>
+    //     <Text style={styles.startTime}>{moment(title).format("h:mm a")}</Text>
+    //   </View>
+    // )}
     keyExtractor={(item, index) => item + index}
   />
 );
@@ -61,7 +65,8 @@ const styles = StyleSheet.create({
     padding: 5,
     fontWeight: "bold",
     marginBottom: 5,
-    fontSize: 13
+    fontSize: 13,
+    width: 400
   },
   scheduleTitle: {
     fontSize: 17,
