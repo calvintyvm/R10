@@ -11,6 +11,11 @@ import {
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
 import { connect } from "react-redux";
+import {
+  createTheFave,
+  showTheFaves,
+  deleteTheFave
+} from "../../redux/modules/Faves";
 
 const scheduleData = gql`
   query {
@@ -34,6 +39,9 @@ class ScheduleContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+  componentDidMount() {
+    this.props.dispatch(showTheFaves());
   }
 
   formatSessionData = sessions => {
