@@ -19,6 +19,7 @@ import {
 } from "../../redux/modules/Faves";
 import Session from "./Session";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import LinearGradient from "react-native-linear-gradient";
 
 class SessionContainer extends Component {
   constructor(props) {
@@ -110,23 +111,35 @@ class SessionContainer extends Component {
         </TouchableOpacity>
         <View>
           {findArray.find(id => id.id === faveid) ? (
-            <Button
-              onPress={() => {
-                dispatch(deleteTheFave(faveid));
-              }}
-              title="Delete To Favs"
-              color="#841584"
-              style={{}}
-            />
+            <LinearGradient
+              start={{ x: 0.0, y: 1.0 }}
+              end={{ x: 1.0, y: 0.0 }}
+              colors={["#cf392a", "#9963ea"]}
+              style={{ flex: 1, paddingVertical: 2, paddingHorizontal: 2 }}
+            >
+              <Button
+                onPress={() => {
+                  dispatch(deleteTheFave(faveid));
+                }}
+                title="Delete To Favs"
+                color="white"
+              />
+            </LinearGradient>
           ) : (
-            <Button
-              onPress={() => {
-                dispatch(createTheFave(faveid));
-              }}
-              title="Add to Favs"
-              color="#841584"
-              style={{}}
-            />
+            <LinearGradient
+              start={{ x: 0.0, y: 1.0 }}
+              end={{ x: 1.0, y: 0.0 }}
+              colors={["#cf392a", "#9963ea"]}
+              style={{ flex: 1, paddingVertical: 2, paddingHorizontal: 2 }}
+            >
+              <Button
+                onPress={() => {
+                  dispatch(createTheFave(faveid));
+                }}
+                title="Add to Favs"
+                color="white"
+              />
+            </LinearGradient>
           )}
         </View>
       </ScrollView>

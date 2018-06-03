@@ -9,9 +9,11 @@ import {
   Button,
   Image,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
+  Linking
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import LinearGradient from "react-native-linear-gradient";
 
 class SpeakerContainer extends Component {
   render() {
@@ -49,6 +51,23 @@ class SpeakerContainer extends Component {
           />
           <Text style={styles.textName}>{speaker.name}</Text>
           <Text style={styles.textDescription}>{speaker.bio}</Text>
+          <LinearGradient
+            start={{ x: 0.0, y: 1.0 }}
+            end={{ x: 1.0, y: 0.0 }}
+            colors={["#cf392a", "#9963ea"]}
+            style={{ flex: 1, paddingVertical: 2, paddingHorizontal: 2 }}
+          >
+            <Button
+              onPress={() => {
+                // dispatch(deleteTheFave(faveid));
+                Linking.openURL(
+                  `https://en.wikipedia.org/wiki/${speaker.name}`
+                );
+              }}
+              title="Read more on Wikipedia"
+              color="white"
+            />
+          </LinearGradient>
         </View>
       </ScrollView>
     );
