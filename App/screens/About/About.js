@@ -10,6 +10,7 @@ import {
   Button,
   Dimensions
 } from "react-native";
+import Footer from "../../components/Footer";
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
 
@@ -63,6 +64,7 @@ const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
           );
         })}
       </View>
+      <Footer />
     </ScrollView>
   );
 };

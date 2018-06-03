@@ -52,12 +52,20 @@ class SessionContainer extends Component {
     return (
       <ScrollView style={styles.container}>
         {/* <Session /> */}
-        {findArray.find(id => id.id === faveid) ? (
-          <Ionicons name="ios-heart" size={15} color="red" />
-        ) : (
-          <Text />
-        )}
-        <Text style={styles.textLocation}>{location}</Text>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-between"
+          }}
+        >
+          <Text style={styles.textLocation}>{location}</Text>
+          {findArray.find(id => id.id === faveid) ? (
+            <Ionicons name="ios-heart" size={15} color="red" />
+          ) : (
+            <Text />
+          )}
+        </View>
         <Text style={styles.textTitle}>{title}</Text>
         <Text style={styles.textTime}>
           {moment(time)
@@ -75,14 +83,30 @@ class SessionContainer extends Component {
         >
           <View>
             <View>
-              <Text>Presented by:</Text>
+              <Text style={{ fontSize: 18 }}>Presented by:</Text>
             </View>
-            <View>
-              <Text>{speaker && speaker.name}</Text>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 10,
+                borderBottomWidth: 1.5,
+                borderColor: "#999999"
+              }}
+            >
               <Image
-                style={{ width: 75, height: 75, borderRadius: 75 / 2 }}
+                style={{
+                  marginBottom: 15,
+                  width: 60,
+                  height: 60,
+                  borderRadius: 60 / 2
+                }}
                 source={{ uri: speaker && speaker.image }}
               />
+              <Text style={{ fontSize: 15, marginLeft: 10 }}>
+                {speaker && speaker.name}
+              </Text>
             </View>
             <View>
               {findArray.find(id => id.id === faveid) ? (
