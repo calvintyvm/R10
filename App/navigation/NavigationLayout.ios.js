@@ -13,9 +13,19 @@ import MapContainer from "../screens/Map";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
 
-export const SpeakerModal = createStackNavigator({
-  Speaker: SpeakerContainer
-});
+export const SpeakerModal = createStackNavigator(
+  {
+    Speaker: SpeakerContainer
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      headerStyle: {
+        backgroundColor: "black",
+        borderBottomColor: "black"
+      }
+    })
+  }
+);
 
 const FavesStack = createStackNavigator(
   {
@@ -24,7 +34,8 @@ const FavesStack = createStackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: "Faves"
     })
   }
 );
@@ -36,7 +47,8 @@ const ScheduleStack = createStackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: "Session"
     })
   }
 );
@@ -47,7 +59,8 @@ const AboutStack = createStackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: "About"
     })
   }
 );
@@ -58,7 +71,8 @@ const MapStack = createStackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      ...sharedNavigationOptions(navigation)
+      ...sharedNavigationOptions(navigation),
+      title: "Map"
     })
   }
 );

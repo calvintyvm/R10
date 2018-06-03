@@ -82,82 +82,53 @@ class SessionContainer extends Component {
           }
         >
           <View>
-            <View>
-              <Text style={{ fontSize: 18 }}>Presented by:</Text>
-            </View>
-            <View
+            <Text style={{ fontSize: 18 }}>Presented by:</Text>
+          </View>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              alignItems: "center",
+              marginTop: 10,
+              borderBottomWidth: 1.5,
+              borderColor: "#999999"
+            }}
+          >
+            <Image
               style={{
-                flex: 1,
-                flexDirection: "row",
-                alignItems: "center",
-                marginTop: 10,
-                borderBottomWidth: 1.5,
-                borderColor: "#999999"
+                marginBottom: 15,
+                width: 60,
+                height: 60,
+                borderRadius: 60 / 2
               }}
-            >
-              <Image
-                style={{
-                  marginBottom: 15,
-                  width: 60,
-                  height: 60,
-                  borderRadius: 60 / 2
-                }}
-                source={{ uri: speaker && speaker.image }}
-              />
-              <Text style={{ fontSize: 15, marginLeft: 10 }}>
-                {speaker && speaker.name}
-              </Text>
-            </View>
-            <View>
-              {findArray.find(id => id.id === faveid) ? (
-                <Button
-                  onPress={() => {
-                    dispatch(deleteTheFave(faveid));
-                  }}
-                  title="Delete To Favs"
-                  color="#841584"
-                />
-              ) : (
-                <Button
-                  onPress={() => {
-                    dispatch(createTheFave(faveid));
-                  }}
-                  title="Add to Favs"
-                  color="#841584"
-                />
-              )}
-
-              {/* {allFaves.map((fave, index) => {
-                let faveId = fave.id;
-                if (faveId === faveid) {
-                  console.log("true");
-                  return (
-                    <Button
-                      key={index}
-                      onPress={() => {
-                        dispatch(deleteTheFave(faveid));
-                      }}
-                      title="Delete To Favs"
-                      color="#841584"
-                    />
-                  );
-                } else {
-                  // console.log("false");
-                  return (
-                    <Button
-                      key={index}
-                      onPress={() => {
-                        dispatch(createTheFave(faveid));
-                      }}
-                      title="Add to Favs"
-                      color="#841584"
-                    />
-                  );
-                }
-              })} */}
-            </View>
+              source={{ uri: speaker && speaker.image }}
+            />
+            <Text style={{ fontSize: 15, marginLeft: 10 }}>
+              {speaker && speaker.name}
+            </Text>
           </View>
         </TouchableOpacity>
+        <View>
+          {findArray.find(id => id.id === faveid) ? (
+            <Button
+              onPress={() => {
+                dispatch(deleteTheFave(faveid));
+              }}
+              title="Delete To Favs"
+              color="#841584"
+              style={{}}
+            />
+          ) : (
+            <Button
+              onPress={() => {
+                dispatch(createTheFave(faveid));
+              }}
+              title="Add to Favs"
+              color="#841584"
+              style={{}}
+            />
+          )}
+        </View>
       </ScrollView>
     );
   }

@@ -8,7 +8,8 @@ import {
   ScrollView,
   Button,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -17,22 +18,39 @@ class SpeakerContainer extends Component {
     const { navigation } = this.props;
     const speaker = navigation.getParam("speaker", "NO-SPEAKER");
     return (
-      <View>
-        <Ionicons
-          name="ios-close"
-          size={35}
-          color="black"
-          onPress={() => navigation.pop()}
-        />
+      <ScrollView style={{ backgroundColor: "black" }}>
+        <StatusBar barStyle="light-content" />
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginBottom: 10
+          }}
+        >
+          <Ionicons
+            name="ios-close"
+            size={35}
+            color="white"
+            onPress={() => navigation.pop()}
+          />
+          <Text style={{ color: "white", fontSize: 18, marginLeft: 70 }}>
+            About the Speaker
+          </Text>
+        </View>
         <View style={styles.container}>
           <Image
-            style={{ width: 75, height: 75 }}
+            style={{
+              width: 75,
+              height: 75,
+              borderRadius: 75 / 2,
+              marginTop: 10
+            }}
             source={{ uri: speaker.image }}
           />
           <Text style={styles.textName}>{speaker.name}</Text>
           <Text style={styles.textDescription}>{speaker.bio}</Text>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -40,7 +58,9 @@ class SpeakerContainer extends Component {
 const styles = StyleSheet.create({
   container: {
     marginLeft: 15,
-    marginRight: 15
+    marginRight: 15,
+    backgroundColor: "white",
+    alignItems: "center"
   },
   textName: {
     fontSize: 20,
@@ -49,7 +69,9 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   textDescription: {
-    fontSize: 17
+    fontSize: 17,
+    marginLeft: 10,
+    marginRight: 10
   }
 });
 
