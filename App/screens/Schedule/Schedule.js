@@ -18,7 +18,7 @@ const Schedule = ({ scheduleData, nav, favesData }) => (
   <SectionList
     sections={scheduleData}
     renderItem={({ item, section, index }) => (
-      <View style={{ flex: 1, flexDirection: "row" }}>
+      <View style={{ flex: 1, flexDirection: "column" }}>
         <TouchableOpacity
           onPress={() =>
             nav.navigate("Session", {
@@ -34,16 +34,26 @@ const Schedule = ({ scheduleData, nav, favesData }) => (
         >
           <View>
             <Text style={styles.scheduleTitle}>{item.title}</Text>
-            <Text style={styles.scheduleLocation}>{item.location}</Text>
           </View>
         </TouchableOpacity>
-        <Text style={{}}>
-          {Array.from(favesData).find(id => id.id === item.id) ? (
-            <Ionicons name="ios-heart" size={15} color="red" />
-          ) : (
-            <Text />
-          )}
-        </Text>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            borderBottomWidth: 1,
+            borderColor: "#999999"
+          }}
+        >
+          <Text style={styles.scheduleLocation}>{item.location}</Text>
+          <Text style={{ marginRight: 10 }}>
+            {Array.from(favesData).find(id => id.id === item.id) ? (
+              <Ionicons name="ios-heart" size={15} color="red" />
+            ) : (
+              <Text />
+            )}
+          </Text>
+        </View>
       </View>
     )}
     renderSectionHeader={({ section: { title } }) => (

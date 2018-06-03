@@ -19,7 +19,8 @@ export const SpeakerModal = createStackNavigator({
 
 const FavesStack = createStackNavigator(
   {
-    Faves: FavesContainer
+    Faves: FavesContainer,
+    Session: SessionContainer
   },
   {
     navigationOptions: ({ navigation }) => ({

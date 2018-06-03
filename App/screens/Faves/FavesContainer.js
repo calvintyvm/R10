@@ -69,13 +69,16 @@ class FavesContainer extends Component {
               </View>
             );
           }
-          // if (error) return <Text>Error getting items</Text>;
-          const newScheduleData = this.formatSessionData(data.allSessions);
+          let newestdata = data.allSessions.filter(session =>
+            Array.from(this.props.allFaves).find(id => id.id === session.id)
+          );
+          const newScheduleData = this.formatSessionData(newestdata);
           return (
             <Faves
               nav={this.props.navigation}
               scheduleData={newScheduleData}
               favesData={this.props && this.props.allFaves}
+              // favesData={data.allSessions.filter(session => session.id ==)}
             />
           );
         }}
