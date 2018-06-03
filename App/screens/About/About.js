@@ -19,22 +19,22 @@ const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
   return (
     // <View style={styles.container}>
     <ScrollView>
-      {/* <View
-          style={{
-            alignItems: "center",
-            borderBottomColor: "grey",
-            borderBottomWidth: 2,
-            marginLeft: 15,
-            marginRight: 15,
-            justifyContent: "center",
-            marginBottom: 15
-          }}
-        > */}
-      <Image
-        style={styles.imageStyle}
-        source={require("../../assets/r10_logo.png")}
-      />
-      {/* </View> */}
+      <View
+        style={{
+          alignItems: "center",
+          borderBottomColor: "grey",
+          borderBottomWidth: 2,
+          marginLeft: 15,
+          marginRight: 15,
+          justifyContent: "center",
+          marginBottom: 15
+        }}
+      >
+        <Image
+          style={styles.imageStyle}
+          source={require("../../assets/r10_logo.png")}
+        />
+      </View>
       <View>
         <Text style={styles.textStyle}>
           R10 is a conference that focuses on just about any topic related to
@@ -102,10 +102,12 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: "bold",
     margin: 10,
-    width: width
+    width: width,
+    color: "#9963ea"
   },
   imageStyle: {
-    marginBottom: 25
+    marginBottom: 25,
+    marginTop: 25
   }
 });
 
