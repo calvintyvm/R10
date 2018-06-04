@@ -48,7 +48,7 @@ const ScheduleStack = createStackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
-      title: "Session"
+      title: "Schedule"
     })
   }
 );

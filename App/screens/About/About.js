@@ -13,6 +13,7 @@ import {
 import Footer from "../../components/Footer";
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
+import AnimatedList from "../../components/AnimatedList";
 
 var { height, width } = Dimensions.get("window");
 
@@ -51,16 +52,11 @@ const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
       <View style={styles.welcome}>
         {aboutData.map((item, index) => {
           return (
-            <View key={index} style={{}}>
-              <TouchableOpacity onPress={() => showInformation(index)}>
-                <Text style={styles.infoTitle}>+ {item.title}</Text>
-              </TouchableOpacity>
-              {showInfo && currentIndex == index ? (
-                <Text style={styles.infoText}>{item.description}</Text>
-              ) : (
-                <Text />
-              )}
-            </View>
+            <AnimatedList
+              title={item.title}
+              description={item.description}
+              key={index}
+            />
           );
         })}
       </View>

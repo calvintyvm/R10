@@ -55,11 +55,15 @@ class SpeakerContainer extends Component {
             start={{ x: 0.0, y: 1.0 }}
             end={{ x: 1.0, y: 0.0 }}
             colors={["#cf392a", "#9963ea"]}
-            style={{ flex: 1, paddingVertical: 2, paddingHorizontal: 2 }}
+            style={{
+              flex: 1,
+              paddingVertical: 2,
+              paddingHorizontal: 2,
+              marginBottom: 15
+            }}
           >
             <Button
               onPress={() => {
-                // dispatch(deleteTheFave(faveid));
                 Linking.openURL(
                   `https://en.wikipedia.org/wiki/${speaker.name}`
                 );
@@ -79,7 +83,8 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     backgroundColor: "white",
-    alignItems: "center"
+    alignItems: "center",
+    borderRadius: 10
   },
   textName: {
     fontSize: 20,
@@ -90,7 +95,8 @@ const styles = StyleSheet.create({
   textDescription: {
     fontSize: 17,
     marginLeft: 10,
-    marginRight: 10
+    marginRight: 10,
+    marginBottom: 10
   }
 });
 

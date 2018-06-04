@@ -10,6 +10,7 @@ import {
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
 import About from "./About";
+import ScreenLoader from "../../components/ScreenLoader";
 
 const AboutData = gql`
   query {
@@ -59,11 +60,7 @@ class AboutContainer extends Component {
       <Query query={AboutData}>
         {({ loading, error, data }) => {
           if (loading) {
-            return (
-              <View>
-                <Text>Loading</Text>
-              </View>
-            );
+            return <ScreenLoader />;
           }
           // if (error) return <Text>Error getting items</Text>;
           return (

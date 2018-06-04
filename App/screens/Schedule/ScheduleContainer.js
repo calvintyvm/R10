@@ -16,6 +16,7 @@ import {
   showTheFaves,
   deleteTheFave
 } from "../../redux/modules/Faves";
+import ScreenLoader from "../../components/ScreenLoader";
 
 const scheduleData = gql`
   query {
@@ -63,11 +64,7 @@ class ScheduleContainer extends Component {
       <Query query={scheduleData}>
         {({ loading, error, data }) => {
           if (loading) {
-            return (
-              <View>
-                <Text>Loading</Text>
-              </View>
-            );
+            return <ScreenLoader />;
           }
           // if (error) return <Text>Error getting items</Text>;
           const newScheduleData = this.formatSessionData(data.allSessions);
