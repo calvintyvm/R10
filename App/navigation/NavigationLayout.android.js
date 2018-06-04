@@ -30,7 +30,8 @@ const FavesStack = createStackNavigator(
     {
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
-            title: 'Faves'
+            title: 'Faves',
+            headerTitleStyle: { color: 'white' }
         })
     }
 );
@@ -43,7 +44,8 @@ const ScheduleStack = createStackNavigator(
     {
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
-            title: 'Schedule'
+            title: 'Schedule',
+            headerTitleStyle: { color: 'white' }
         })
     }
 );
@@ -55,7 +57,8 @@ const AboutStack = createStackNavigator(
     {
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
-            title: 'About'
+            title: 'About',
+            headerTitleStyle: { color: 'white' }
         })
     }
 );
@@ -67,7 +70,8 @@ const MapStack = createStackNavigator(
     {
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
-            title: 'Map'
+            title: 'Map',
+            headerTitleStyle: { color: 'white' }
         })
     }
 );

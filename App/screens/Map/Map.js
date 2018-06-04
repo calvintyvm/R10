@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import MapView from 'react-native-maps';
 
 const Map = () => (
@@ -21,7 +21,7 @@ const Map = () => (
                 description="RED"
             />
         </MapView> */}
-        <MapView />
+        <Text>Hi</Text>
     </View>
 );
 
