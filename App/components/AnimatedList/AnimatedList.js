@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, LayoutAnimation } from 'react-native';
+import {
+    Text,
+    TouchableOpacity,
+    LayoutAnimation,
+    UIManager,
+    Platform
+} from 'react-native';
 import styles from './styles';
 
 class AnimatedList extends Component {
@@ -8,6 +14,10 @@ class AnimatedList extends Component {
         this.state = {
             opened: false
         };
+        if (Platform.OS === 'android') {
+            UIManager.setLayoutAnimationEnabledExperimental &&
+                UIManager.setLayoutAnimationEnabledExperimental(true);
+        }
 
         this.showInfo = this.showInfo.bind(this);
     }
