@@ -47,7 +47,7 @@ class AboutContainer extends Component {
           if (loading) {
             return <ScreenLoader />;
           }
-          // if (error) return <Text>Error getting items</Text>;
+          if (error) return <Text>Error getting items</Text>;
           return (
             <About
               showInfo={this.state.showInfo}

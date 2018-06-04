@@ -66,7 +66,7 @@ class ScheduleContainer extends Component {
           if (loading) {
             return <ScreenLoader />;
           }
-          // if (error) return <Text>Error getting items</Text>;
+          if (error) return <Text>Error getting items</Text>;
           const newScheduleData = this.formatSessionData(data.allSessions);
           return (
             <Schedule

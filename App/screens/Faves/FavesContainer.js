@@ -78,7 +78,6 @@ class FavesContainer extends Component {
               nav={this.props.navigation}
               scheduleData={newScheduleData}
               favesData={this.props && this.props.allFaves}
-              // favesData={data.allSessions.filter(session => session.id ==)}
             />
           );
         }}

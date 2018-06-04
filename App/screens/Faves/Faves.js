@@ -13,6 +13,7 @@ import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
 import moment from "moment";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import styles from "./styles";
 
 const Faves = ({ scheduleData, nav, favesData }) => (
   <SectionList
@@ -36,15 +37,7 @@ const Faves = ({ scheduleData, nav, favesData }) => (
             <Text style={styles.scheduleTitle}>{item.title}</Text>
           </View>
         </TouchableOpacity>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            borderBottomWidth: 1,
-            borderColor: "#999999"
-          }}
-        >
+        <View style={styles.bottomFaveContainer}>
           <Text style={styles.scheduleLocation}>{item.location}</Text>
           <Ionicons
             style={{ marginRight: 10 }}
@@ -63,24 +56,5 @@ const Faves = ({ scheduleData, nav, favesData }) => (
     keyExtractor={(item, index) => item + index}
   />
 );
-
-const styles = StyleSheet.create({
-  startTime: {
-    backgroundColor: "#999999",
-    padding: 5,
-    fontWeight: "bold",
-    marginBottom: 5,
-    fontSize: 13
-  },
-  scheduleTitle: {
-    fontSize: 17,
-    fontWeight: "bold",
-    padding: 5
-  },
-  scheduleLocation: {
-    fontSize: 12,
-    padding: 5
-  }
-});
 
 export default Faves;
