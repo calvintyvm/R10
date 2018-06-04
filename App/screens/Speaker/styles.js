@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     textName: {
-        fontSize: 20,
+        fontSize: 25,
+        color: 'black',
         fontWeight: 'bold',
         marginBottom: 10,
         marginTop: 10,
@@ -24,10 +25,11 @@ const styles = StyleSheet.create({
         })
     },
     textDescription: {
+        color: 'black',
         fontSize: 17,
         marginLeft: 10,
         marginRight: 10,
-        marginBottom: 10,
+        marginBottom: 15,
         ...Platform.select({
             android: {
                 fontFamily: fontStyles.android
@@ -40,13 +42,17 @@ const styles = StyleSheet.create({
     speakerContainer: { backgroundColor: 'black' },
     topNav: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 10
+        width: '80%',
+        marginBottom: 10,
+        marginLeft: 12
     },
     navText: {
         color: 'white',
         fontSize: 18,
         marginLeft: 70,
+        marginRight: 20,
         ...Platform.select({
             android: {
                 fontFamily: fontStyles.android
@@ -57,9 +63,9 @@ const styles = StyleSheet.create({
         })
     },
     speakerImage: {
-        width: 75,
-        height: 75,
-        borderRadius: 75 / 2,
+        width: 100,
+        height: 100,
+        borderRadius: 100 / 2,
         marginTop: 10
     },
     gradientText: {

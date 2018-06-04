@@ -44,111 +44,125 @@ class SessionContainer extends Component {
         const findArray = Array.from(allFaves);
         return (
             <ScrollView style={styles.container}>
-                <View
-                    style={{
-                        flex: 1,
-                        flexDirection: 'row',
-                        justifyContent: 'space-between'
-                    }}
-                >
-                    <Text style={styles.textLocation}>{location}</Text>
-                    {findArray.find(id => id.id === faveid) ? (
-                        <Ionicons name="ios-heart" size={15} color="red" />
-                    ) : (
-                        <Text />
-                    )}
-                </View>
-                <Text style={styles.textTitle}>{title}</Text>
-                <Text style={styles.textTime}>
-                    {moment(time)
-                        .format('h:mm a')
-                        .toUpperCase()}
-                </Text>
-                <Text style={styles.textDescription}>{description}</Text>
-                <View>
-                    <Text style={styles.topPresentText}>Presented by:</Text>
-                </View>
-                <View>
-                    <TouchableOpacity
-                        onPress={() =>
-                            navigation.push('Speaker', {
-                                speaker
-                            })
-                        }
+                <View style={styles.viewContainer}>
+                    <View
+                        style={{
+                            flex: 1,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between'
+                        }}
                     >
-                        <View style={styles.presentContainer}>
-                            <Image
-                                style={styles.presentImage}
-                                source={{ uri: speaker && speaker.image }}
-                            />
-                            <Text style={styles.presentText}>
-                                {speaker && speaker.name}
-                            </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-                <View>
-                    {findArray.find(id => id.id === faveid) ? (
-                        <LinearGradient
-                            start={{ x: 0.0, y: 1.0 }}
-                            end={{ x: 1.0, y: 0.0 }}
-                            colors={['#cf392a', '#9963ea']}
-                            style={{
-                                ...Platform.select({
-                                    android: {
-                                        paddingVertical: 10,
-                                        paddingHorizontal: 10,
-                                        marginTop: 10
-                                    },
-                                    ios: {
-                                        flex: 1,
-                                        paddingVertical: 5,
-                                        paddingHorizontal: 5
-                                    }
+                        <Text style={styles.textLocation}>{location}</Text>
+                        {findArray.find(id => id.id === faveid) ? (
+                            <Ionicons name="ios-heart" size={15} color="red" />
+                        ) : (
+                            <Text />
+                        )}
+                    </View>
+                    <Text style={styles.textTitle}>{title}</Text>
+                    <Text style={styles.textTime}>
+                        {moment(time)
+                            .format('h:mm a')
+                            .toUpperCase()}
+                    </Text>
+                    <Text style={styles.textDescription}>{description}</Text>
+                    <View>
+                        <Text style={styles.topPresentText}>Presented by:</Text>
+                    </View>
+                    <View>
+                        <TouchableOpacity
+                            onPress={() =>
+                                navigation.push('Speaker', {
+                                    speaker
                                 })
-                            }}
+                            }
                         >
-                            <TouchableOpacity
-                                onPress={() => {
-                                    dispatch(deleteTheFave(faveid));
+                            <View style={styles.presentContainer}>
+                                <Image
+                                    style={styles.presentImage}
+                                    source={{ uri: speaker && speaker.image }}
+                                />
+                                <Text style={styles.presentText}>
+                                    {speaker && speaker.name}
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    <Text
+                        style={{
+                            borderBottomColor: 'grey',
+                            borderBottomWidth: 1
+                        }}
+                    />
+                    <View>
+                        {findArray.find(id => id.id === faveid) ? (
+                            <LinearGradient
+                                start={{ x: 0.0, y: 1.0 }}
+                                end={{ x: 1.0, y: 0.0 }}
+                                colors={['#cf392a', '#9963ea']}
+                                style={{
+                                    ...Platform.select({
+                                        android: {
+                                            paddingVertical: 10,
+                                            paddingHorizontal: 10,
+                                            marginTop: 15,
+                                            marginBottom: 15,
+                                            width: '70%',
+                                            marginLeft: 50
+                                        },
+                                        ios: {
+                                            flex: 1,
+                                            paddingVertical: 5,
+                                            paddingHorizontal: 5
+                                        }
+                                    })
                                 }}
                             >
-                                <Text style={styles.gradientText}>
-                                    Delete from Faves
-                                </Text>
-                            </TouchableOpacity>
-                        </LinearGradient>
-                    ) : (
-                        <LinearGradient
-                            start={{ x: 0.0, y: 1.0 }}
-                            end={{ x: 1.0, y: 0.0 }}
-                            colors={['#cf392a', '#9963ea']}
-                            style={{
-                                ...Platform.select({
-                                    android: {
-                                        paddingVertical: 10,
-                                        paddingHorizontal: 10,
-                                        marginTop: 10
-                                    },
-                                    ios: {
-                                        flex: 1,
-                                        paddingVertical: 5,
-                                        paddingHorizontal: 5
-                                    }
-                                })
-                            }}
-                        >
-                            <TouchableOpacity
-                                onPress={() => {
-                                    dispatch(createTheFave(faveid));
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        dispatch(deleteTheFave(faveid));
+                                    }}
+                                >
+                                    <Text style={styles.gradientText}>
+                                        Delete from Faves
+                                    </Text>
+                                </TouchableOpacity>
+                            </LinearGradient>
+                        ) : (
+                            <LinearGradient
+                                start={{ x: 0.0, y: 1.0 }}
+                                end={{ x: 1.0, y: 0.0 }}
+                                colors={['#cf392a', '#9963ea']}
+                                style={{
+                                    ...Platform.select({
+                                        android: {
+                                            paddingVertical: 10,
+                                            paddingHorizontal: 10,
+                                            marginTop: 15,
+                                            marginBottom: 15,
+                                            width: '70%',
+                                            marginLeft: 50
+                                        },
+                                        ios: {
+                                            flex: 1,
+                                            paddingVertical: 5,
+                                            paddingHorizontal: 5
+                                        }
+                                    })
                                 }}
                             >
-                                <Text style={styles.gradientText}>
-                                    Add to Faves
-                                </Text>
-                            </TouchableOpacity>
-                        </LinearGradient>
-                    )}
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        dispatch(createTheFave(faveid));
+                                    }}
+                                >
+                                    <Text style={styles.gradientText}>
+                                        Add to Faves
+                                    </Text>
+                                </TouchableOpacity>
+                            </LinearGradient>
+                        )}
+                    </View>
                 </View>
             </ScrollView>
         );

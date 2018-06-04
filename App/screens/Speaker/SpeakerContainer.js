@@ -46,13 +46,13 @@ class SpeakerContainer extends Component {
                                 android: {
                                     paddingVertical: 10,
                                     paddingHorizontal: 10,
-                                    marginBottom: 15
+                                    marginBottom: 20
                                 },
                                 ios: {
                                     flex: 1,
                                     paddingVertical: 5,
                                     paddingHorizontal: 5,
-                                    marginBottom: 15
+                                    marginBottom: 20
                                 }
                             })
                         }}

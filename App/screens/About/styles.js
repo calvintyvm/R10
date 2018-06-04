@@ -1,10 +1,10 @@
 import { StyleSheet, Platform } from 'react-native';
-import { colorStyles, fontStyles } from '../../config/styles';
+import { colourStyles, fontStyles } from '../../config/styles';
 
 const styles = StyleSheet.create({
     header: {
         alignItems: 'center',
-        borderBottomColor: 'grey',
+        borderBottomColor: colourStyles.mediumgray,
         borderBottomWidth: 2,
         marginLeft: 15,
         marginRight: 15,
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
         })
     },
     titleStyle: {
+        color: 'black',
         fontSize: 25,
         fontWeight: 'bold',
         margin: 10,

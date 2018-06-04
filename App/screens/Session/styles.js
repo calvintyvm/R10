@@ -3,7 +3,7 @@ import { colorStyles, fontStyles } from '../../config/styles';
 
 const styles = StyleSheet.create({
     container: {
-        width: '80%',
+        width: '100%',
         marginLeft: 20,
         marginTop: 20
     },
@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     },
     textTitle: {
         fontSize: 28,
+        color: 'black',
         fontWeight: 'bold',
         marginTop: 10,
         marginBottom: 10,
@@ -79,6 +80,7 @@ const styles = StyleSheet.create({
     },
     presentText: {
         fontSize: 18,
+        color: 'black',
         marginLeft: 10,
         ...Platform.select({
             android: {
@@ -93,9 +95,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 10,
-        borderBottomWidth: 1.5,
-        borderColor: '#999999'
+        marginTop: 10
     },
     topPresentText: {
         fontSize: 18,
@@ -107,7 +107,8 @@ const styles = StyleSheet.create({
                 fontFamily: fontStyles.ios
             }
         })
-    }
+    },
+    viewContainer: { width: '90%' }
 });
 
 export default styles;
