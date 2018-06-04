@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
-import { colorStyles, fontStyles } from '../../config/styles';
+import { fontStyles, colourStyles } from '../../config/styles';
 
 const styles = StyleSheet.create({
     container: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     },
     textLocation: {
         fontSize: 18,
-        color: 'grey',
+        color: colourStyles.mediumgray,
         ...Platform.select({
             android: {
                 fontFamily: fontStyles.android
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     },
     textTitle: {
         fontSize: 28,
-        color: 'black',
+        color: colourStyles.black,
         fontWeight: 'bold',
         marginTop: 10,
         marginBottom: 10,
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         })
     },
     textTime: {
-        color: 'red',
+        color: colourStyles.red,
         marginBottom: 10,
         fontSize: 18,
         ...Platform.select({
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     },
     gradientText: {
         fontSize: 20,
-        color: 'white',
+        color: colourStyles.white,
         textAlign: 'center',
         ...Platform.select({
             android: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     presentText: {
         fontSize: 18,
-        color: 'black',
+        color: colourStyles.black,
         marginLeft: 10,
         ...Platform.select({
             android: {

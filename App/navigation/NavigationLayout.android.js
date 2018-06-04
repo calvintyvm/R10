@@ -7,6 +7,7 @@ import FavesContainer from '../screens/Faves';
 import SessionContainer from '../screens/Session';
 import SpeakerContainer from '../screens/Speaker';
 import MapContainer from '../screens/Map';
+import { colourStyles } from '../config/styles';
 import { sharedNavigationOptions } from './config';
 
 export const SpeakerModal = createStackNavigator(
@@ -16,8 +17,8 @@ export const SpeakerModal = createStackNavigator(
     {
         navigationOptions: ({ navigation }) => ({
             headerStyle: {
-                backgroundColor: 'black',
-                borderBottomColor: 'black'
+                backgroundColor: colourStyles.black,
+                borderBottomColor: colourStyles.black
             }
         })
     }
@@ -31,7 +32,7 @@ const FavesStack = createStackNavigator(
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
             title: 'Faves',
-            headerTitleStyle: { color: 'white' }
+            headerTitleStyle: { color: colourStyles.white }
         })
     }
 );
@@ -44,8 +45,11 @@ const ScheduleStack = createStackNavigator(
     {
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
-            title: 'Schedule',
-            headerTitleStyle: { color: 'white' }
+            title:
+                navigation.state.routeName === 'Schedule'
+                    ? 'Schedule'
+                    : 'Session',
+            headerTitleStyle: { color: colourStyles.white }
         })
     }
 );
@@ -58,7 +62,7 @@ const AboutStack = createStackNavigator(
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
             title: 'About',
-            headerTitleStyle: { color: 'white' }
+            headerTitleStyle: { color: colourStyles.white }
         })
     }
 );
@@ -71,7 +75,7 @@ const MapStack = createStackNavigator(
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
             title: 'Map',
-            headerTitleStyle: { color: 'white' }
+            headerTitleStyle: { color: colourStyles.white }
         })
     }
 );

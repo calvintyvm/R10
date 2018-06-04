@@ -12,6 +12,7 @@ import {
 import PropTypes from 'prop-types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
+import { colourStyles } from '../../config/styles';
 import styles from './styles';
 
 class SpeakerContainer extends Component {
@@ -25,7 +26,7 @@ class SpeakerContainer extends Component {
                     <Ionicons
                         name="ios-close"
                         size={35}
-                        color="white"
+                        color={colourStyles.white}
                         onPress={() => navigation.pop()}
                     />
                     <Text style={styles.navText}>About the Speaker</Text>

@@ -41,5 +41,5 @@ const About = ({ aboutData }) => (
 export default About;
 
 About.propTypes = {
-    aboutData: PropTypes.string.isRequired
+    aboutData: PropTypes.array.isRequired
 };

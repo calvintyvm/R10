@@ -45,7 +45,6 @@ class ScheduleContainer extends Component {
                 return acc;
             }, [])
             .sort((a, b) => a.title - b.title);
-
     render() {
         return (
             <Query query={scheduleData}>
@@ -73,6 +72,6 @@ export default connect(state => ({
 }))(ScheduleContainer);
 
 ScheduleContainer.propTypes = {
-    navigation: PropTypes.object.isRequired,
-    allFaves: PropTypes.object.isRequired
+    navigation: PropTypes.object.isRequired
+    // allFaves: PropTypes.array.isRequired
 };

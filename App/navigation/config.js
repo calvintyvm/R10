@@ -3,6 +3,7 @@ import { StyleSheet, View, Platform } from 'react-native';
 import { Header } from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { colourStyles } from '../config/styles';
 
 const GradientHeader = props => (
     <View style={{ backgroundColor: 'white', overflow: 'hidden' }}>
@@ -23,13 +24,31 @@ export const sharedNavigationOptions = navigation => ({
         backgroundColor: 'transparent'
     },
     headerLeft: Platform.select({
-        android: (
-            <Ionicons
-                style={{ marginLeft: 20 }}
-                size={30}
-                name="md-menu"
-                onPress={() => navigation.toggleDrawer()}
-            />
-        )
+        android:
+            navigation.state.routeName !== 'Session' ? (
+                <Ionicons
+                    style={{ marginLeft: 20 }}
+                    size={30}
+                    name="md-menu"
+                    color={colourStyles.white}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            ) : (
+                <Ionicons
+                    style={{ marginLeft: 20 }}
+                    size={30}
+                    name="md-arrow-back"
+                    color={colourStyles.white}
+                    onPress={() => navigation.pop()}
+                />
+            )
     })
+});
+
+export const sessionNavigatorOptions = navigation => ({
+    headerBackTitle: null,
+    header: props => <GradientHeader {...props} />,
+    headerStyle: {
+        backgroundColor: 'transparent'
+    }
 });

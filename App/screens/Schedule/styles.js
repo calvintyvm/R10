@@ -1,9 +1,9 @@
 import { StyleSheet, Platform } from 'react-native';
-import { colorStyles, fontStyles } from '../../config/styles';
+import { colourStyles, fontStyles } from '../../config/styles';
 
 const styles = StyleSheet.create({
     startTime: {
-        backgroundColor: '#999999',
+        backgroundColor: colourStyles.mediumgray,
         padding: 5,
         fontWeight: 'bold',
         marginBottom: 5,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderBottomWidth: 1,
-        borderColor: '#999999'
+        borderColor: colourStyles.mediumgray
     }
 });
 

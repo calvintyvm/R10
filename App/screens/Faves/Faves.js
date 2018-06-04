@@ -3,6 +3,7 @@ import { Text, View, SectionList, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { colourStyles } from '../../config/styles';
 import styles from './styles';
 
 const Faves = ({ scheduleData, nav, favesData }) => (
@@ -33,7 +34,7 @@ const Faves = ({ scheduleData, nav, favesData }) => (
                         style={{ marginRight: 10 }}
                         name="ios-heart"
                         size={15}
-                        color="red"
+                        color={colourStyles.red}
                     />
                 </View>
             </View>

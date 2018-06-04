@@ -19,6 +19,7 @@ import {
     deleteTheFave
 } from '../../redux/modules/Faves';
 import styles from './styles';
+import { colourStyles } from '../../config/styles';
 
 class SessionContainer extends Component {
     constructor(props) {
@@ -54,7 +55,11 @@ class SessionContainer extends Component {
                     >
                         <Text style={styles.textLocation}>{location}</Text>
                         {findArray.find(id => id.id === faveid) ? (
-                            <Ionicons name="ios-heart" size={15} color="red" />
+                            <Ionicons
+                                name="ios-heart"
+                                size={15}
+                                color={colourStyles.red}
+                            />
                         ) : (
                             <Text />
                         )}
@@ -90,7 +95,7 @@ class SessionContainer extends Component {
                     </View>
                     <Text
                         style={{
-                            borderBottomColor: 'grey',
+                            borderBottomColor: colourStyles.mediumgray,
                             borderBottomWidth: 1
                         }}
                     />

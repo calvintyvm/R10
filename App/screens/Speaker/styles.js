@@ -1,11 +1,11 @@
 import { StyleSheet, Platform } from 'react-native';
-import { colorStyles, fontStyles } from '../../config/styles';
+import { colourStyles, fontStyles } from '../../config/styles';
 
 const styles = StyleSheet.create({
     container: {
         marginLeft: 15,
         marginRight: 15,
-        backgroundColor: 'white',
+        backgroundColor: colourStyles.white,
         alignItems: 'center',
         borderRadius: 10
     },
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         marginLeft: 12
     },
     navText: {
-        color: 'white',
+        color: colourStyles.white,
         fontSize: 18,
         marginLeft: 70,
         marginRight: 20,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
     gradientText: {
         fontSize: 18,
-        color: 'white',
+        color: colourStyles.white,
         ...Platform.select({
             android: {
                 fontFamily: fontStyles.android

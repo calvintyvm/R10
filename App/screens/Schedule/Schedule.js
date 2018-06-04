@@ -3,6 +3,7 @@ import { Text, View, SectionList, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { colourStyles } from '../../config/styles';
 import styles from './styles';
 
 const Schedule = ({ scheduleData, nav, favesData }) => (
@@ -31,7 +32,11 @@ const Schedule = ({ scheduleData, nav, favesData }) => (
                     <Text style={styles.scheduleLocation}>{item.location}</Text>
                     <Text style={{ marginRight: 10 }}>
                         {Array.from(favesData).find(id => id.id === item.id) ? (
-                            <Ionicons name="ios-heart" size={15} color="red" />
+                            <Ionicons
+                                name="ios-heart"
+                                size={15}
+                                color={colourStyles.red}
+                            />
                         ) : (
                             <Text />
                         )}
