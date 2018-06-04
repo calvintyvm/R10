@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
     Text,
     TouchableOpacity,
@@ -56,3 +57,8 @@ class AnimatedList extends Component {
 }
 
 export default AnimatedList;
+
+AnimatedList.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
+};

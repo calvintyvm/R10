@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, ScrollView, Image } from 'react-native';
+import PropTypes from 'prop-types';
 import Footer from '../../components/Footer';
 import AnimatedList from '../../components/AnimatedList';
 import styles from './styles';
@@ -38,3 +39,7 @@ const About = ({ aboutData }) => (
 );
 
 export default About;
+
+About.propTypes = {
+    aboutData: PropTypes.string.isRequired
+};

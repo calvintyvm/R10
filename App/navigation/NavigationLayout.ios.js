@@ -1,5 +1,6 @@
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import PropTypes from 'prop-types';
 import {
     createStackNavigator,
     createBottomTabNavigator
@@ -17,10 +18,12 @@ export const SpeakerModal = createStackNavigator(
         Speaker: SpeakerContainer
     },
     {
-        headerStyle: {
-            backgroundColor: 'black',
-            borderBottomColor: 'black'
-        }
+        navigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                backgroundColor: 'black',
+                borderBottomColor: 'black'
+            }
+        })
     }
 );
 

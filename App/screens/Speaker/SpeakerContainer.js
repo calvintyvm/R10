@@ -9,6 +9,7 @@ import {
     StatusBar,
     Linking
 } from 'react-native';
+import PropTypes from 'prop-types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
@@ -75,3 +76,7 @@ class SpeakerContainer extends Component {
 }
 
 export default SpeakerContainer;
+
+SpeakerContainer.propTypes = {
+    navigation: PropTypes.object.isRequired
+};

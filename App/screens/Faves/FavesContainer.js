@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
 import Faves from './Faves';
@@ -75,3 +76,8 @@ class FavesContainer extends Component {
 export default connect(state => ({
     allFaves: state.Faves.allFaves
 }))(FavesContainer);
+
+FavesContainer.propTypes = {
+    navigation: PropTypes.object.isRequired,
+    allFaves: PropTypes.object.isRequired
+};

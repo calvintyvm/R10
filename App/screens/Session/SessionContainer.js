@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withNavigation } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
+import PropTypes from 'prop-types';
 import {
     Platform,
     Text,
@@ -157,3 +158,9 @@ class SessionContainer extends Component {
 export default connect(state => ({
     allFaves: state.Faves.allFaves
 }))(withNavigation(SessionContainer));
+
+SessionContainer.propTypes = {
+    navigation: PropTypes.object.isRequired,
+    allFaves: PropTypes.object.isRequired,
+    dispatch: PropTypes.func
+};

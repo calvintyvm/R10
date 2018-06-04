@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { connect } from 'react-redux';
@@ -70,3 +71,8 @@ class ScheduleContainer extends Component {
 export default connect(state => ({
     allFaves: state.Faves.allFaves
 }))(ScheduleContainer);
+
+ScheduleContainer.propTypes = {
+    navigation: PropTypes.object.isRequired,
+    allFaves: PropTypes.object.isRequired
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, SectionList, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
@@ -50,3 +51,9 @@ const Schedule = ({ scheduleData, nav, favesData }) => (
 );
 
 export default Schedule;
+
+Schedule.propTypes = {
+    scheduleData: PropTypes.array.isRequired,
+    nav: PropTypes.object.isRequired,
+    favesData: PropTypes.object.isRequired
+};
