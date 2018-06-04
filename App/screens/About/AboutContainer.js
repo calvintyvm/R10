@@ -30,7 +30,6 @@ class AboutContainer extends Component {
       showInfo: false,
       currentIndex: -1,
       showArray: []
-      // display: "none"
     };
   }
 
@@ -38,20 +37,6 @@ class AboutContainer extends Component {
     this.setState({ showInfo: !this.state.showInfo, currentIndex: index });
     console.log(index);
   };
-
-  // showInformation = index => {
-  //   let newestArray = [];
-  //   if (showArray.includes(index)) {
-  //     newestArray.push(index);
-  //     this.setState({ showArray: newestArray });
-  //   } else {
-  //     function remove(array, element) {
-  //       return array.filter(e => e !== element);
-  //     }
-  //   }
-  // };
-
-  showInfo = () => {};
 
   render() {
     console.log(this.state.currentIndex);

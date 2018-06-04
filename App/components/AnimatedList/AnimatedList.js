@@ -6,11 +6,10 @@ import {
   Animated,
   Platform,
   UIManager,
-  StyleSheet,
-  Dimensions
+  StyleSheet
 } from "react-native";
+import styles from "./styles";
 
-var { height, width } = Dimensions.get("window");
 class AnimatedList extends Component {
   constructor(props) {
     super(props);
@@ -51,21 +50,5 @@ class AnimatedList extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  infoText: {
-    fontSize: 15,
-    fontWeight: "100",
-    width: "90%",
-    marginLeft: 20
-  },
-  infoTitle: {
-    fontSize: 17,
-    fontWeight: "bold",
-    margin: 10,
-    width: width,
-    color: "#9963ea"
-  }
-});
 
 export default AnimatedList;

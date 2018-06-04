@@ -14,24 +14,12 @@ import Footer from "../../components/Footer";
 import gql from "graphql-tag";
 import { Query, graphql } from "react-apollo";
 import AnimatedList from "../../components/AnimatedList";
-
-var { height, width } = Dimensions.get("window");
+import styles from "./styles";
 
 const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
   return (
-    // <View style={styles.container}>
     <ScrollView>
-      <View
-        style={{
-          alignItems: "center",
-          borderBottomColor: "grey",
-          borderBottomWidth: 2,
-          marginLeft: 15,
-          marginRight: 15,
-          justifyContent: "center",
-          marginBottom: 15
-        }}
-      >
+      <View style={styles.header}>
         <Image
           style={styles.imageStyle}
           source={require("../../assets/r10_logo.png")}
@@ -64,49 +52,5 @@ const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 30
-  },
-  welcome: {
-    // fontSize: 20,
-    // textAlign: "center",
-    margin: 2
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  },
-  textStyle: {
-    fontSize: 15,
-    fontWeight: "100",
-    margin: 10
-  },
-  infoText: {
-    fontSize: 15,
-    fontWeight: "100"
-  },
-  titleStyle: {
-    fontSize: 25,
-    fontWeight: "bold",
-    margin: 10
-  },
-  infoTitle: {
-    fontSize: 17,
-    fontWeight: "bold",
-    margin: 10,
-    width: width,
-    color: "#9963ea"
-  },
-  imageStyle: {
-    marginBottom: 25,
-    marginTop: 25
-  }
-});
 
 export default About;

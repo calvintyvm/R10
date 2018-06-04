@@ -44,12 +44,6 @@ class SessionContainer extends Component {
     const faveid = navigation.getParam("faveid", "NO-LOCATION");
     const favesData = navigation.getParam("favesData", "NO-LOCATION");
     let findArray = Array.from(allFaves);
-    // console.log(speaker);
-    // console.log(allFaves.includes(faveid));
-    //if == gql
-    // console.log(faveid);
-    // console.log(allFaves);
-    // console.log(allFaves.map(fav => fav.id === faveid));
     return (
       <ScrollView style={styles.container}>
         {/* <Session /> */}
@@ -74,7 +68,7 @@ class SessionContainer extends Component {
             .toUpperCase()}
         </Text>
         <Text style={styles.textDescription}>{description}</Text>
-        {/* <View> */}
+
         <TouchableOpacity
           onPress={() =>
             navigation.push("Speaker", {
