@@ -16,7 +16,7 @@ import { Query, graphql } from "react-apollo";
 import AnimatedList from "../../components/AnimatedList";
 import styles from "./styles";
 
-const About = ({ aboutData, showInfo, showInformation, currentIndex }) => {
+const About = ({ aboutData }) => {
   return (
     <ScrollView>
       <View style={styles.header}>

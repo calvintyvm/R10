@@ -35,7 +35,6 @@ class AnimatedList extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { title, description } = this.props;
     return (
       <TouchableOpacity onPress={this.showInfo} style={{ overflow: "hidden" }}>

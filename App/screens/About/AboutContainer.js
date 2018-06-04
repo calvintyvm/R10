@@ -26,21 +26,10 @@ const AboutData = gql`
 class AboutContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showInfo: false,
-      currentIndex: -1,
-      showArray: []
-    };
+    this.state = {};
   }
 
-  showInformation = index => {
-    this.setState({ showInfo: !this.state.showInfo, currentIndex: index });
-    console.log(index);
-  };
-
   render() {
-    console.log(this.state.currentIndex);
-    console.log(this.state.showInfo);
     return (
       <Query query={AboutData}>
         {({ loading, error, data }) => {
@@ -48,14 +37,7 @@ class AboutContainer extends Component {
             return <ScreenLoader />;
           }
           if (error) return <Text>Error getting items</Text>;
-          return (
-            <About
-              showInfo={this.state.showInfo}
-              showInformation={this.showInformation.bind(this)}
-              aboutData={data.allConducts}
-              currentIndex={this.state.currentIndex}
-            />
-          );
+          return <About aboutData={data.allConducts} />;
         }}
       </Query>
     );
