@@ -1,3 +1,3 @@
-import SpeakerContainer from "./SpeakerContainer";
+import SpeakerContainer from './SpeakerContainer';
 
 export default SpeakerContainer;

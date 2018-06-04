@@ -1,3 +1,3 @@
-import ScheduleContainer from "./ScheduleContainer";
+import ScheduleContainer from './ScheduleContainer';
 
 export default ScheduleContainer;

@@ -1,2 +1,3 @@
-import AnimatedList from "./AnimatedList";
+import AnimatedList from './AnimatedList';
+
 export default AnimatedList;
