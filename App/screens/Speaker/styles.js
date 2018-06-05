@@ -44,21 +44,29 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '80%',
         marginBottom: 10,
-        marginLeft: 12
+        marginLeft: 12,
+        ...Platform.select({
+            android: {
+                width: '80%'
+            },
+            ios: {
+                width: '90%'
+            }
+        })
     },
     navText: {
         color: colourStyles.white,
         fontSize: 18,
-        marginLeft: 70,
         marginRight: 40,
         ...Platform.select({
             android: {
-                fontFamily: fontStyles.android
+                fontFamily: fontStyles.android,
+                marginLeft: 70
             },
             ios: {
-                fontFamily: fontStyles.ios
+                fontFamily: fontStyles.ios,
+                marginLeft: 10
             }
         })
     },

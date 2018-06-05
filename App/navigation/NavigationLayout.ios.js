@@ -49,7 +49,10 @@ const ScheduleStack = createStackNavigator(
     {
         navigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation),
-            title: 'Schedule',
+            title:
+                navigation.state.routeName === 'Schedule'
+                    ? 'Schedule'
+                    : 'Session',
             headerTitleStyle: { color: 'white' }
         })
     }
