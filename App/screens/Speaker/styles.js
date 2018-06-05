@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         color: colourStyles.white,
         fontSize: 18,
         marginLeft: 70,
-        marginRight: 20,
+        marginRight: 40,
         ...Platform.select({
             android: {
                 fontFamily: fontStyles.android
