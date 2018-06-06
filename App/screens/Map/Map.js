@@ -30,7 +30,7 @@ const Map = () => (
         >
             <View>
                 <Image
-                    style={{ width: 50, height: 50, marginBottom: 30 }}
+                    style={{ width: 65, height: 90, marginBottom: 20 }}
                     source={require('../../assets/map_pin.png')}
                 />
             </View>
